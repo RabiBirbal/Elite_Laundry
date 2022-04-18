@@ -15,15 +15,15 @@
  
        }
        hr {
-   width: 100%;
-    height: 21px;
-   margin-left: auto;
-   margin-right: auto;
-   /*background-color:#89ba40;*/
-   border: 0 none;
-   margin-top: 0;
-   margin-bottom:0;
- }
+        width: 100%;
+            height: 21px;
+        margin-left: auto;
+        margin-right: auto;
+        /*background-color:#89ba40;*/
+        border: 0 none;
+        margin-top: 0;
+        margin-bottom:0;
+        }
  </style>
 <hr>
 <div class="banner-image">
@@ -148,7 +148,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="image/delivery-person.png">
+                <img src="{{ asset('frontend/assets/image/delivery-person.png') }}">
             </div>
             <div class="col-md-6">
                 <p>Dry Cleaning is the latest dry cleaning & laundry service with many types of the quality cleaning process.  It is a  star laundry service replacing the local launderette or dry cleaner. Dry Cleaning offers a quick & reliable laundry pick-up service directly from your home.  Using our laundry App, you can place your online laundry order easily through the website.</p>

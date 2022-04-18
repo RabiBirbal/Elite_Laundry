@@ -21,8 +21,8 @@
                     <ul>
                         <li><a href="{{ route('index') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">About us</a></li>
-                        <li><a href="service.html">Our Services</a></li>
-                        <li><a href="price.html">Pricing</a></li>
+                        <li><a href="{{ route('service') }}">Our Services</a></li>
+                        <li><a href="{{ route('pricing') }}">Pricing</a></li>
                         <li><a href="{{ route('contact') }}">Contact us</a></li>
                     </ul>
                 </div>
@@ -66,7 +66,7 @@
                 <h4>Copyright © 2022 | All Right Reserved Elite Laundry Services Pvt. Ltd.</h4>
             </div>
             <div class="col-md-3">
-                <h5>Powered by: Yohoni Ad Marketing</h5></div>
+                <h5>Powered by: <a href="http://yohoniads.com/">Yohoni Ad Marketing</a> </h5></div>
             </div>
         </div>
     </div>

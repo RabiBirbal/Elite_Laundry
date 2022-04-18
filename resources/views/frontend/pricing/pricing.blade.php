@@ -9,45 +9,45 @@
  
        }
        .btn-info {
-     color: #fff;
-     background-color: #5bc0de;
-     border-color: #46b8da;
- }
- .btn {
-   margin-right: auto;
-   margin-left: auto;
-     display: block;
-     margin-bottom: 0;
-     font-weight: 400;
-     text-align: center;
-     white-space: nowrap;
-     vertical-align: middle;
-     -ms-touch-action: manipulation;
-     touch-action: manipulation;
-     cursor: pointer;
-     background-image: none;
-     border: 1px solid transparent;
-     padding: 6px 12px;
-     font-size: 14px;
-     line-height: 1.42857143;
-     border-radius: 4px;
-     -webkit-user-select: none;
-     -moz-user-select: none;
-     -ms-user-select: none;
-     user-select: none;
- }
-       
-       hr {
-   width: 100%;
-    height: 21px;
-   margin-left: auto;
-   margin-right: auto;
-   /*background-color:#89ba40;*/
-   border: 0 none;
-   margin-top: 0;
-   margin-bottom:0;
- }
-   </style>
+			color: #fff;
+			background-color: #5bc0de;
+			border-color: #46b8da;
+		}
+		.btn {
+		margin-right: auto;
+		margin-left: auto;
+			display: block;
+			margin-bottom: 0;
+			font-weight: 400;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			-ms-touch-action: manipulation;
+			touch-action: manipulation;
+			cursor: pointer;
+			background-image: none;
+			border: 1px solid transparent;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			border-radius: 4px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+			
+			hr {
+		width: 100%;
+			height: 21px;
+		margin-left: auto;
+		margin-right: auto;
+		/*background-color:#89ba40;*/
+		border: 0 none;
+		margin-top: 0;
+		margin-bottom:0;
+		}
+</style>
 <hr>
 <div class="banner-image">
     <img src="{{ asset('frontend/assets/image/contact-image.jpg') }}" width="100%">
@@ -68,8 +68,127 @@
         <img src="{{ asset('upload/images/pricing/'.$pricing['image']) }}">
         <h3><b>{{ $pricing->title }}</b></h3>
         <h4>Price Rs.{{$pricing->price}}/- per kg</h4>
-      <button type="button" class="btn btn-info">Order Now</button>
+		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal-{{ $pricing->id }}">Order Now</button>
       </div>
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal-{{ $pricing->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h2 class="modal-title" id="exampleModalLongTitle">Order Now</h2>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">X</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <form action="{{ route('post.order') }}" method="post">
+				@csrf
+				<input type="hidden" name="id" value="{{ $pricing->id }}">
+				<div class="col-md-12 form-group input-group">
+					<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+				  <label for="name">Full Name</label>
+				<input name="name" class="form-control" placeholder="Full Name" type="text" >
+				<br>
+				@error('name')
+				  <span class="invalid-feedback text-danger" role="alert">
+					<strong>{{ $message }}</strong>
+				  </span>
+				@enderror                  
+				</div> <!-- form-group// -->
+				
+				<div class="col-md-12 form-group input-group">
+					<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+				  <label for="name">Phone Number</label>
+				  <input name="phone" class="form-control" placeholder="Phone Number" type="text">
+				  <br>
+				  @error('phone')
+				  <span class="invalid-feedback text-danger" role="alert">
+					<strong>{{ $message }}</strong>
+				  </span>
+				@enderror  
+				</div> <!-- form-group// -->
+				<div class="col-md-12 form-group input-group">
+					<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+				  <label for="email">Email</label>
+				<input name="email" class="form-control" placeholder="Email Address" type="email" >
+				<br>
+				@error('email')
+				  <span class="invalid-feedback text-danger" role="alert">
+					<strong>{{ $message }}</strong>
+				  </span>
+				@enderror                  
+				</div> <!-- form-group// -->
+				
+				<div class="col-md-12 form-group input-group">
+					<span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+				  <label for="name">Address</label>
+				  <input name="address" class="form-control" placeholder="Address" type="text">
+				  <br>
+				  @error('address')
+				  <span class="invalid-feedback text-danger" role="alert">
+					<strong>{{ $message }}</strong>
+				  </span>
+				@enderror  
+				</div> <!-- form-group// -->
+				
+				<div class="col-md-12 form-group input-group">
+					<span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+				  <label for="name">Preferred Pickup Date</label>
+				  <input name="pickup_date" class="form-control" placeholder="Date" type="date">
+				  <br>
+				  @error('pickup_date')
+				  <span class="invalid-feedback text-danger" role="alert">
+					<strong>{{ $message }}</strong>
+				  </span>
+				@enderror  
+				</div> <!-- form-group// -->
+
+				<div class="col-md-12 form-group input-group">
+					<span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+				  <label for="name">Preferred Delivery Date</label>
+				  <input name="delivery_date" class="form-control" placeholder="Date" type="date">
+				  <br>
+				  @error('delivery_date')
+				  <span class="invalid-feedback text-danger" role="alert">
+					<strong>{{ $message }}</strong>
+				  </span>
+				@enderror  
+				</div> <!-- form-group// -->
+
+				<div class="col-md-12 form-group input-group">
+					<span class="input-group-text"> <i class="fa fa-comment"></i> </span>
+				  <label for="name">Instruction (If Any)</label>
+				  <textarea name="instruction" id="" cols="30" rows="5" class="form-control" placeholder="Instruction"></textarea>
+				</div> <!-- form-group// -->
+				<div class="form-groupinput-group">
+				  <div class="row">
+					<div class="col-md-1 col-xm-1 col-sm-1">
+					  <input class="form-check-input" type="checkbox" name="terms" value="on" id="flexCheckDefault" required>
+					</div>
+					<div class="col-md-11 col-xm-11 col-sm-11">
+					  <label class="form-check-label" for="flexCheckDefault">
+						I agree all the terms and conditions.
+					  </label>
+					  <br>
+					  @error('terms')
+				  <span class="invalid-feedback text-danger" role="alert">
+					<strong>{{ $message }}</strong>
+				  </span>
+				@enderror 
+					</div>
+				  </div>
+				  
+				  
+			  </div> <!-- form-group// -->                               
+				<div class="form-group">
+					<button type="submit" onclick="return confirm('Are you sure want to continue?')" id="submit" value="submit" class="btn btn-primary btn-block"> Send </button>
+				</div> <!-- form-group// -->                                                                       
+			</form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  {{-- modal ends --}}
       @endforeach
     </div>
   </div>

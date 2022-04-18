@@ -81,7 +81,7 @@
        @error('subject')
       <p style="color: red">{{ $message }}</p>
       @enderror  
-      <textarea name="message" id="" cols="30" rows="5" class="fadeIn third" placeholder="Subject">{{ old('message') }}</textarea>
+      <textarea name="message" id="" cols="30" rows="5" class="fadeIn third" placeholder="Your Message Here..........">{{ old('message') }}</textarea>
       @error('message')
       <p style="color: red">{{ $message }}</p>
       @enderror  
