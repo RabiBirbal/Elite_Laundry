@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyProfile;
 use App\Models\News;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -18,7 +19,8 @@ class AboutController extends Controller
     public function index()
     {
         $profile=CompanyProfile::first();
-        return view('frontend.about.about',compact("profile"));
+        $teams= Team::where('status','on')->get();
+        return view('frontend.about.about',compact("profile","teams"));
     }
 
     /**

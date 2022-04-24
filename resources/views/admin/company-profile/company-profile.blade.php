@@ -116,9 +116,16 @@
                     </div>
                         <div class="card-body">
                             <div class="form-group">
+                                <label for="video">Video</label>
+                                <input type="text" class="form-control" name="video" id="video" value="{{ $profile->video }}" placeholder="Enter Embeded Video Link">
+                                @error('video')
+                                    <p style="color: red">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label for="map">Map</label>
                                 <input type="text" class="form-control" name="map" id="map" value="{{ $profile->map }}" placeholder="Enter Map">
-                                @error('address')
+                                @error('map')
                                     <p style="color: red">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -289,6 +296,13 @@
                     <h3 class="card-title">Other Informations</h3>
                     </div>
                         <div class="card-body">
+                            <div class="form-group">
+                                <label for="video">Video</label>
+                                <input type="text" class="form-control" name="video" id="video" value="{{ old('video') }}" placeholder="Enter Embeded Video Link">
+                                @error('video')
+                                    <p style="color: red">{{ $message }}</p>
+                                @enderror
+                            </div>
                             <div class="form-group">
                                 <label for="map">Map</label>
                                 <input type="text" class="form-control" name="map" id="map" value="{{ old('map') }}" placeholder="Enter Map">

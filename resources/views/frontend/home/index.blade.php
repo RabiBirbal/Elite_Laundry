@@ -4,6 +4,28 @@
   input{
     width: 100%;
   }
+  .youtube-video iframe{
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+.youtube-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 44%;
+  height: 0;
+}
+@media only screen and (max-width:600px){
+  .youtube-video iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+}
+
 </style>
 
 <!-- slider  -->
@@ -117,7 +139,7 @@
           <h3><b>{{ $pricing->title }}</b></h3>
           <h4>Price Rs. {{ $pricing->price }}/- per kg</h4>
           <div class="text-center" >
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal-{{ $pricing->id }}">Order Now</button>
+            <a href="{{ route('get.order',$pricing['id']) }}" target="__blank"><button type="button" class="btn btn-info">Order Now</button></a>
         </div>
         <!-- Modal -->
 	  <div class="modal fade" id="myModal-{{ $pricing->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -346,13 +368,18 @@
 </div>
 <!-- commerical service ends -->
   
+<!-- video -->
+<div class="youtube-video">
+  {!! $profile->video !!}
+</div>
+<!-- video ends -->
   
   <!-- we are working -->
   
   <section class="details-card">
       <div class="container working">
           <div class="row">
-                <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="col-md-12 col-sm-12 col-lg-12" style="margin-top: -60px; margin-bottom: 10px;">
                   <h1><b>We are working with</b></h1>
               </div>
               @foreach ($news_list as $news)

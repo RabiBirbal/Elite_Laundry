@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('address');
             $table->text('short_introduction');
             $table->text('introduction');
+            $table->text('video')->nullable();
             $table->text('map')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();

@@ -24,6 +24,8 @@ class CompanyProfile extends Model
         'youtube',
         'linked_in',
         'working_days',
-        'working_hours'
+        'working_hours',
+        'map',
+        'video'
     ];
 }

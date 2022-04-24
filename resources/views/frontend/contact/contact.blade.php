@@ -2,15 +2,19 @@
 @section('content')
 <style>
     hr {
-  width: 100%;
-   height: 21px;
-  margin-left: auto;
-  margin-right: auto;
-  /*background-color:#89ba40;*/
-  border: 0 none;
-  margin-top: 0;
-  margin-bottom:0;
-}
+      width: 100%;
+      height: 21px;
+      margin-left: auto;
+      margin-right: auto;
+      /*background-color:#89ba40;*/
+      border: 0 none;
+      margin-top: 0;
+      margin-bottom:0;
+    }
+    .fa{
+      font-size: 40px;
+      margin: 10px;
+    }
 </style>
 
 <hr>
@@ -28,15 +32,30 @@
 			</div>
 			<div class="col-md-4">
 				<h2>Hours of Operation</h2>
-				<p>Opening time: 9:00 AM - 7:00 PM </p>
-				<p>Sunday to Saturday</p>
+				<p>Opening time: {{ $profile->working_hours }} </p>
+				<p>{{ $profile->working_days }}</p>
 			</div>
 			<div class="col-md-4">
-				<h2>Carrers</h2>
+				{{-- <h2>Carrers</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. </p>
+				consequat. </p> --}}
+        @if ($profile->facebook)
+        <a href="{{ $profile->facebook }}" target="__blank" style="margin-right: 10px"><i class="fa fa-facebook"></i></a>
+        @endif
+        @if ($profile->twitter)
+        <a href="{{ $profile->twitter }}" target="__blank" style="margin-right: 10px"><i class="fa fa-twitter"></i></a>
+        @endif
+        @if ($profile->instagram)
+        <a href="{{ $profile->instagram }}" target="__blank" style="margin-right: 10px"><i class="fa fa-instagram"></i></a>
+        @endif
+        @if ($profile->youtube)
+        <a href="{{ $profile->youtube }}" target="__blank" style="margin-right: 10px"><i class="fa fa-youtube"></i></a>
+        @endif
+        @if ($profile->linked_in)
+        <a href="{{ $profile->linked_in }}" target="__blank" style="margin-right: 10px"><i class="fa fa-linkedin"></i></a>
+        @endif                      
 			</div>
 		</div>
 	</div>
@@ -77,11 +96,11 @@
       @error('phone')
       <p style="color: red">{{ $message }}</p>
       @enderror  
-       <input type="text" id="subject" class="fadeIn third" name="subject" value="{{ old('subject') }}" placeholder="Subject">
+       {{-- <input type="text" id="subject" class="fadeIn third" name="subject" value="{{ old('subject') }}" placeholder="Subject">
        @error('subject')
       <p style="color: red">{{ $message }}</p>
-      @enderror  
-      <textarea name="message" id="" cols="30" rows="5" class="fadeIn third" placeholder="Your Message Here..........">{{ old('message') }}</textarea>
+      @enderror   --}}
+      <textarea name="message" id="" cols="30" rows="5" class="fadeIn third" placeholder="Message">{{ old('message') }}</textarea>
       @error('message')
       <p style="color: red">{{ $message }}</p>
       @enderror  

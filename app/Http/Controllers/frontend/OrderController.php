@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CompanyProfile;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $profile=CompanyProfile::first();
+        return view('frontend.order.order',compact("profile","id"));
     }
 
     /**
@@ -37,23 +39,26 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|digits:10',
             'address' => 'required',
             'pickup_date' => 'required',
             'delivery_date' => 'required',
+            'terms' => 'required',
         ]);
 
         $order = new Order();
         $order->pricing_id = $request->id;
-        $order->name = $request->name;
+        $order->first_name = $request->first_name;
+        $order->last_name = $request->last_name;
         $order->email = $request->email;
         $order->phone = $request->phone;
         $order->address = $request->address;
         $order->pickup_date = $request->pickup_date;
         $order->delivery_date = $request->delivery_date;
-        $order->instruction = $request->instruction;
+        $order->instruction = $request->description;
         $order->terms = $request->terms;
 
         $order->save();

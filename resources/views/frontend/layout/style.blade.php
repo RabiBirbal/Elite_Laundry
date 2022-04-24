@@ -19,7 +19,7 @@
         background-image: url('{{ asset('frontend/assets/image/background.jpg') }}');
         background-attachment: fixed;
         background-repeat: no-repeat;
-
+        height: 380px;
       }
 .commerical{
         background-image: url('{{ asset('frontend/assets/image/commerical-laundry.jpg') }}');

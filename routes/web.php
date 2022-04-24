@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ReviewController as AdminReviewController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\AddToCartController;
 use App\Http\Controllers\frontend\ContactController;
@@ -59,6 +60,7 @@ Route::get('/services', [FrontendServiceController::class, 'index'])->name('serv
 Route::get('/pricings', [FrontendPricingController::class, 'index'])->name('pricing');
 
 //order
+Route::get('/pricing/order/{id}', [OrderController::class, 'index'])->name('get.order');
 Route::post('/order', [OrderController::class, 'store'])->name('post.order');
 
 // Contact
@@ -112,6 +114,15 @@ Route::get('/admin/news/status/change/{id}', [NewsController::class, 'changeStat
 //order
 Route::get('/admin/orders', [AdminOrderController::class, 'index'])->name('admin.order');
 Route::post('/admin/order/delete', [AdminOrderController::class, 'destroy'])->name('order.delete');
+
+// team
+Route::get('/admin/team/add', [TeamController::class, 'index'])->name('admin.team');
+Route::post('/admin/team/add', [TeamController::class, 'store'])->name('team.add');
+Route::get('/admin/team/show', [TeamController::class, 'show'])->name('team.show');
+Route::get('/admin/team/edit/{id}', [TeamController::class, 'edit'])->name('team.edit');
+Route::post('/admin/team/update', [TeamController::class, 'update'])->name('team.update');
+Route::post('/admin/team/delete', [TeamController::class, 'destroy'])->name('team.delete');
+Route::get('/admin/team/status/change/{id}', [TeamController::class, 'changeStatus'])->name('team.status');
 
 //contact
 Route::get('/admin/contact', [AdminContactController::class, 'index'])->name('admin.contact');

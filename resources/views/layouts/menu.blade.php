@@ -99,6 +99,29 @@
       </li>
     </ul>
   </li>
+  <li class="nav-item {{ Request::is('admin/team/add') ? 'menu-open' : '' }}{{ Request::is('admin/team/show') ? 'menu-open' : '' }}">
+    <a href="#" class="nav-link {{ Request::is('admin/team/add') ? 'active' : '' }}{{ Request::is('admin/team/show') ? 'active' : '' }}">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+        Team
+        <i class="right fas fa-angle-left"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{ route('admin.team') }}" class="nav-link {{ Request::is('admin/team/add') ? 'active' : '' }}">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Add Team Member</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('team.show') }}" class="nav-link {{ Request::is('admin/team/show') ? 'active' : '' }}">
+          <i class="far fa-circle nav-icon"></i>
+          <p>List Team Member</p>
+        </a>
+      </li>
+    </ul>
+  </li>
   <li class="nav-item">
     <a href="{{ route('admin.order') }}" class="nav-link {{ Request::is('admin/orders') ? 'active' : '' }}">
       <i class="nav-icon fas fa-list"></i>

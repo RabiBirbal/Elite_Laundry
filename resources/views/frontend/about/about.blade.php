@@ -2,21 +2,23 @@
 @section('content')
 <style>
     .specialize{
-         background-image: url('{{ asset('frontend/assets/image/iron.jpg') }}');
-         background-attachment: fixed;
-         background-repeat: no-repeat;
- 
-       }
- 
-        .delivery{
-         background-image: url('{{ asset('frontend/assets/image/cloth-folding.jpg') }}');
-         background-attachment: fixed;
-         background-repeat: no-repeat;
- 
-       }
-       hr {
+        background-image: url('image/iron.jpg');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+
+      }
+
+       .laundry-people{
+           color: white;
+        background-image: url('{{ asset('frontend/assets/image/cloth-folding.jpg') }}');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        
+
+      }
+      hr {
         width: 100%;
-            height: 21px;
+        height: 21px;
         margin-left: auto;
         margin-right: auto;
         /*background-color:#89ba40;*/
@@ -24,7 +26,7 @@
         margin-top: 0;
         margin-bottom:0;
         }
- </style>
+</style>
 <hr>
 <div class="banner-image">
     <img src="{{ asset('frontend/assets/image/contact-image.jpg') }}" width="100%">
@@ -142,24 +144,32 @@
 
 
 
-<!-- delivery -->
-
-<div class="delivery">
+<!-- laundry head people -->
+<div class="laundry-people">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <img src="{{ asset('frontend/assets/image/delivery-person.png') }}">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <h1><b>OUR TEAM</b></h1>
+                <p>We have become a brand that promises unmatched reliability and exceptional value to your garments because of our team. We deem it necessary to introduce our team.</p>
             </div>
-            <div class="col-md-6">
-                <p>Dry Cleaning is the latest dry cleaning & laundry service with many types of the quality cleaning process.  It is a  star laundry service replacing the local launderette or dry cleaner. Dry Cleaning offers a quick & reliable laundry pick-up service directly from your home.  Using our laundry App, you can place your online laundry order easily through the website.</p>
-                <h2>Drycleaners always provide hassle free door step delivery.</h2>
-            </div>
+            <!-- <div class="col-md-6">
+                <img src="image/washing-cloth.png">
+            </div> -->
         </div>
     </div>
 </div>
-
-
-
-
-<!-- delivery ends -->
+<div class="laundry-people">
+    <div class="container">
+        <div class="row">
+            @foreach ($teams as $team)
+            <div class="col-md-4 text-center">
+                <img src="{{ asset('upload/images/team/'.$team['image']) }}" alt="">
+                <h2>{{ $team->name }}</h2>
+                <h4>{{ $team->role }}</h4>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+<!-- laundry head people ends -->
 @endsection

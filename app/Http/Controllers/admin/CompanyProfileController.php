@@ -67,6 +67,8 @@ class CompanyProfileController extends Controller
         $profile->youtube=$request->youtube;
         $profile->linked_in=$request->linkedin;
         $profile->working_hours=$request->working_hours;
+        $profile->working_days=$request->working_days;
+        $profile->video=$request->video;
 
         if($request->hasfile('logo')){
             $file=$request->file('logo');
@@ -147,6 +149,8 @@ class CompanyProfileController extends Controller
         $profile->youtube=$request->youtube;
         $profile->linked_in=$request->linkedin;
         $profile->working_hours=$request->working_hours;
+        $profile->working_days=$request->working_days;
+        $profile->video=$request->video;
 
         if($request->hasfile('logo')){
             $file=$request->file('logo');
