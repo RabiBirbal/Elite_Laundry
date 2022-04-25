@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .specialize{
-        background-image: url('image/iron.jpg');
+        background-image: url('{{ asset('frontend/assets/image/iron.jpg') }}');
         background-attachment: fixed;
         background-repeat: no-repeat;
 

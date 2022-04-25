@@ -62,10 +62,11 @@
 <div class="service">
 <div class="container">
     <div class="row">
+      
         {{-- <p hidden>{{ $n=1; }}</p> --}}
         {{-- <section class="features"> --}}
         @foreach ($services as $service)
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-top: 20px">
           <div class="row">
             <div class="col-md-6">
               <img src="{{ asset('upload/images/service/'.$service['thumbnail']) }}" width="100%">
@@ -73,7 +74,7 @@
           <div class="col-md-6">
               <h2>{{ $service->name }}</h2>
               <p>
-                  {!! $service->description !!}
+                {!! \Illuminate\Support\Str::limit($service->description, 390) !!}  
               </p>
           </div>
           </div>

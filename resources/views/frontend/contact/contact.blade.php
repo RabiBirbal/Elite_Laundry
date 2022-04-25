@@ -12,7 +12,7 @@
       margin-bottom:0;
     }
     .fa{
-      font-size: 40px;
+      font-size: 20px;
       margin: 10px;
     }
 </style>
@@ -27,36 +27,31 @@
 <div class="contact">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<img src="{{ asset('frontend/assets/image/1.jpg') }}">
-			</div>
-			<div class="col-md-4">
-				<h2>Hours of Operation</h2>
-				<p>Opening time: {{ $profile->working_hours }} </p>
-				<p>{{ $profile->working_days }}</p>
-			</div>
-			<div class="col-md-4">
-				{{-- <h2>Carrers</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. </p> --}}
-        @if ($profile->facebook)
-        <a href="{{ $profile->facebook }}" target="__blank" style="margin-right: 10px"><i class="fa fa-facebook"></i></a>
-        @endif
-        @if ($profile->twitter)
-        <a href="{{ $profile->twitter }}" target="__blank" style="margin-right: 10px"><i class="fa fa-twitter"></i></a>
-        @endif
-        @if ($profile->instagram)
-        <a href="{{ $profile->instagram }}" target="__blank" style="margin-right: 10px"><i class="fa fa-instagram"></i></a>
-        @endif
-        @if ($profile->youtube)
-        <a href="{{ $profile->youtube }}" target="__blank" style="margin-right: 10px"><i class="fa fa-youtube"></i></a>
-        @endif
-        @if ($profile->linked_in)
-        <a href="{{ $profile->linked_in }}" target="__blank" style="margin-right: 10px"><i class="fa fa-linkedin"></i></a>
-        @endif                      
-			</div>
+      <div class="col-md-12 text-center">
+        <div class="col-md-5 text-right">
+          <img src="{{ asset('frontend/assets/image/1.jpg') }}">
+        </div>
+        <div class="col-md-7 text-center">
+          <h2>Hours of Operation</h2>
+          <p>Opening time: {{ $profile->working_hours }} </p>
+          <p>{{ $profile->working_days }}</p>
+            @if ($profile->facebook)
+            <a href="{{ $profile->facebook }}" target="__blank" style="margin-right: 10px"><i class="fa fa-facebook"></i></a>
+            @endif
+            @if ($profile->twitter)
+            <a href="{{ $profile->twitter }}" target="__blank" style="margin-right: 10px"><i class="fa fa-twitter"></i></a>
+            @endif
+            @if ($profile->instagram)
+            <a href="{{ $profile->instagram }}" target="__blank" style="margin-right: 10px"><i class="fa fa-instagram"></i></a>
+            @endif
+            @if ($profile->youtube)
+            <a href="{{ $profile->youtube }}" target="__blank" style="margin-right: 10px"><i class="fa fa-youtube"></i></a>
+            @endif
+            @if ($profile->linked_in)
+            <a href="{{ $profile->linked_in }}" target="__blank" style="margin-right: 10px"><i class="fa fa-linkedin"></i></a>
+            @endif     
+        </div>
+      </div>
 		</div>
 	</div>
 </div>
@@ -100,7 +95,7 @@
        @error('subject')
       <p style="color: red">{{ $message }}</p>
       @enderror   --}}
-      <textarea name="message" id="" cols="30" rows="5" class="fadeIn third" placeholder="Message">{{ old('message') }}</textarea>
+      <textarea name="message" id="" cols="30" rows="5" class="fadeIn third message" placeholder="Message">{{ old('message') }}</textarea>
       @error('message')
       <p style="color: red">{{ $message }}</p>
       @enderror  
