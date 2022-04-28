@@ -13,7 +13,7 @@
 .youtube-video {
   position: relative;
   width: 100%;
-  padding-bottom: 44%;
+  padding-bottom: 7%;
   height: 0;
 }
 @media only screen and (max-width:600px){
@@ -23,6 +23,12 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+.youtube-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 60%;
+  height: 0;
 }
 }
 
@@ -251,17 +257,17 @@
 <!-- commerical service ends -->
   
 <!-- video -->
-<div class="youtube-video">
-  {!! $profile->video !!}
+<div class="youtube-video" style="height: 100%">
+      {!! $profile->video !!}
 </div>
 <!-- video ends -->
   
   <!-- we are working -->
   
-  <section class="details-card">
+  <div class="details-card">
       <div class="container working">
           <div class="row">
-                <div class="col-md-12 col-sm-12 col-lg-12" style="margin-top: -60px; margin-bottom: 10px;">
+                <div class="col-md-12 col-sm-12 col-lg-12" style="margin-bottom: 10px;">
                   <h1><b>We are working with</b></h1>
               </div>
               @foreach ($news_list as $news)
@@ -279,6 +285,6 @@
               @endforeach
           </div>
       </div>
-  </section>
+    </div>
   <!-- we are working ends -->
 @endsection  
