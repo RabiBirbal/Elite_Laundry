@@ -49,7 +49,7 @@
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        {{-- <a href="#" class="btn btn-default btn-flat">Profile</a> --}}
                         <a href="#" class="btn btn-default btn-flat float-right"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Sign out
@@ -78,7 +78,7 @@
         <div class="float-right d-none d-sm-block">
             {{-- <b>Version</b> 1.0 --}}
         </div>
-        <strong>Copyright &copy; 2022 <a href="http://yohoniads.com/" target="__blank">Yohoni Ad Marketing</a>.</strong> All rights
+        <strong>Copyright &copy; 2022 <a href="http://elitelaundry.com.np/" target="__blank">Elite Laundry</a>.</strong> All rights
         reserved.
     </footer>
 </div>

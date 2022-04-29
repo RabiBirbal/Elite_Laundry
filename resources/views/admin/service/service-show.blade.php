@@ -40,7 +40,7 @@
                             <img src="{{ asset('no-image.jpg') }}" alt="Image" width="100px">
                           @endif
                         </td>
-                        <td>{{ $service->description }}</td>
+                        <td>{!! \Illuminate\Support\Str::limit($service->description, 390) !!}  </td>
                         <td class="text-center">
                             @if ($service->status == "on")
                                 <a href="{{ route('service.status',$service->id) }}" class="btn btn-success" onclick="return confirm('Are you sure want to continue?')">On</a>

@@ -42,14 +42,10 @@
                           @endif
                         </td>
                         <td>
-                            <textarea name="short_description" id="" cols="30" rows="10" class="form-control" style="width: 250px" readonly>
-                                {{ $news->short_description }}
-                            </textarea>
+                            <textarea name="short_description" id="" cols="30" rows="10" class="form-control" style="width: 250px" readonly>{{ strip_tags($news->short_description) }}</textarea>
                         </td>
                         <td>
-                            <textarea name="description" id="" cols="30" rows="10" class="form-control" style="width: 250px" readonly>
-                                {{ $news->description }}
-                            </textarea>
+                            <textarea name="description" id="" cols="30" rows="10" class="form-control" style="width: 250px" readonly>{{ strip_tags($news->description) }}</textarea>
                         </td>
                         <td class="text-center">
                           @if ($news->status == "on")

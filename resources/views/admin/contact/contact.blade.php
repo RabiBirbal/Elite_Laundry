@@ -101,9 +101,7 @@
                         <td>{{ $contact->phone }}</td>
                         <td>{{ $contact->subject }}</td>
                         <td>
-                            <textarea name="message" id="" cols="25" rows="5" readonly>
-                                {{ $contact->message }}
-                            </textarea>
+                            <textarea name="message" id="" cols="25" rows="5" readonly>{{ $contact->message }}</textarea>
                         </td>
                         <td>
                               <form action="{{ route('contact.delete') }}" method="post" class="mt-1">

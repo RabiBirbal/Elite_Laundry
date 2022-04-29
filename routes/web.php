@@ -128,4 +128,4 @@ Route::get('/admin/team/status/change/{id}', [TeamController::class, 'changeStat
 Route::get('/admin/contact', [AdminContactController::class, 'index'])->name('admin.contact');
 Route::post('/admin/contact/delete', [AdminContactController::class, 'destroy'])->name('contact.delete');
 
-Auth::routes();
+Auth::routes(['register' => false]);
